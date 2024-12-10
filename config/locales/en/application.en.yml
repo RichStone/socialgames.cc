@@ -1,11 +1,11 @@
 en:
   application:
-    name: Untitled Application
+    name: Social Games
     owner: Unidentified Developer
     description: "You can update this description in `config/locales/en/application.en.yml`."
-    keywords: untitled application seo keywords
+    keywords: social games seo keywords
     support_email: change.me@localhost
-    key: untitled_application
+    key: social_games
   webhooks/outgoing/endpoints:
     fields:
       api_version:
