@@ -6,5 +6,5 @@ if [ -x "$(command -v overmind)" ]
 then
   overmind start -f Procfile.dev "$@"
 else
-  foreman start -f Procfile.dev "$@"
+  foreman start -f Procfile.dev "$@" --env .env
 fi
