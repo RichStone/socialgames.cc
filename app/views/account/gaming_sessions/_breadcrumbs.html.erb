@@ -1,0 +1,8 @@
+<% gaming_session ||= @gaming_session %>
+<% team ||= @team || gaming_session&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :gaming_sessions] %>
+<% if gaming_session&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: gaming_session.label_string, url: [:account, gaming_session] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'gaming_sessions' %>

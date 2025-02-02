@@ -1,0 +1,110 @@
+en:
+  gaming_sessions: &gaming_sessions
+    label: &label Gaming Sessions
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-game
+    buttons: &buttons
+      new: Add New Gaming Session
+      create: Create Gaming Session
+      edit: Edit Gaming Session
+      update: Update Gaming Session
+      destroy: Remove Gaming Session
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{gaming_session_name}? This will also remove any child resources and can't be undone.
+    gaming_session:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Gaming Session ID
+      team_id:
+        heading: Team ID
+      finished_at:
+        _: &finished_at Finished At
+        label: *finished_at
+        heading: *finished_at
+        api_title: *finished_at
+        api_description: *finished_at
+      note:
+        _: &note Note
+        label: *note
+        heading: *note
+        api_title: *note
+        api_description: *note
+      with_cheating:
+        _: &with_cheating With Cheating
+        label: *with_cheating
+        heading: *with_cheating
+        api_title: *with_cheating
+        api_description: *with_cheating
+        options:
+          yes: "Yes"
+          no: "No"
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Gaming Sessions"
+      index: "List Gaming Sessions"
+      create: "Add a New Gaming Session"
+      member_actions: "Actions for an Individual Gaming Session"
+      show: "Retrieve a Gaming Session"
+      update: "Update a Gaming Session"
+      destroy: "Delete a Gaming Session"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Gaming Sessions"
+      contexts:
+        team:
+          header: Gaming Sessions
+          description: Below is a list of Gaming Sessions that have been added for %{team_name}.
+          description_empty: No Gaming Sessions have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{gaming_session_name}"
+      header: Gaming Session Details
+      description: Below are the details we have for %{gaming_session_name}.
+      manage_description: You'll also find options for updating these details or removing %{gaming_session_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Gaming Session for %{team_name}"
+      header: New Gaming Session Details
+      description: Please provide the details of the new Gaming Session you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{gaming_session_name}"
+      header: Edit Gaming Session Details
+      description: You can update the details or settings for %{gaming_session_name} below.
+      form: *form
+    notifications:
+      created: Gaming Session was successfully created.
+      updated: Gaming Session was successfully updated.
+      destroyed: Gaming Session was successfully destroyed.
+  account:
+    gaming_sessions: *gaming_sessions
+  activerecord:
+    attributes:
+      gaming_session:
+        finished_at: *finished_at
+        note: *note
+        with_cheating: *with_cheating
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
