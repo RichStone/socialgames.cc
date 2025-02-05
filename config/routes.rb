@@ -69,6 +69,7 @@ Rails.application.routes.draw do
 
         resources :gaming_sessions
         resources :games
+        resources :players
       end
     end
   end

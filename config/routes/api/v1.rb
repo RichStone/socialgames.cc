@@ -33,6 +33,7 @@ shallow do
 
       resources :gaming_sessions
       resources :games
+      resources :players
     end
   end
 end
