@@ -1,5 +1,6 @@
 default:
   models:
+    Game: read
     GamingSession: read
     Team: read
     Membership:
@@ -29,6 +30,7 @@ admin:
     - admin
     - editor
   models:
+    Game: manage
     GamingSession: manage
     Team: manage
     Membership: manage

@@ -1,0 +1,93 @@
+en:
+  games: &games
+    label: &label Games
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-game
+    buttons: &buttons
+      new: Add New Game
+      create: Create Game
+      edit: Edit Game
+      update: Update Game
+      destroy: Remove Game
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{game_name}? This will also remove any child resources and can't be undone.
+    game:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Game ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Games"
+      index: "List Games"
+      create: "Add a New Game"
+      member_actions: "Actions for an Individual Game"
+      show: "Retrieve a Game"
+      update: "Update a Game"
+      destroy: "Delete a Game"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Games"
+      contexts:
+        team:
+          header: Games
+          description: Below is a list of Games that have been added for %{team_name}.
+          description_empty: No Games have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{game_name}"
+      header: Game Details
+      description: Below are the details we have for %{game_name}.
+      manage_description: You'll also find options for updating these details or removing %{game_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Game for %{team_name}"
+      header: New Game Details
+      description: Please provide the details of the new Game you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{game_name}"
+      header: Edit Game Details
+      description: You can update the details or settings for %{game_name} below.
+      form: *form
+    notifications:
+      created: Game was successfully created.
+      updated: Game was successfully updated.
+      destroyed: Game was successfully destroyed.
+  account:
+    games: *games
+  activerecord:
+    attributes:
+      game:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

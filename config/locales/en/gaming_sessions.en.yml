@@ -5,7 +5,7 @@ en:
       label: *label
     navigation:
       label: *label
-      icon: ti ti-game
+      icon: ti ti-control-forward
     buttons: &buttons
       new: Add New Gaming Session
       create: Create Gaming Session

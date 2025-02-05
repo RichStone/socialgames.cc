@@ -32,6 +32,7 @@ shallow do
       end
 
       resources :gaming_sessions
+      resources :games
     end
   end
 end
