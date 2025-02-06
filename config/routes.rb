@@ -67,7 +67,9 @@ Rails.application.routes.draw do
           # 🚅 super scaffolding will insert new integration installations above this line.
         end
 
-        resources :gaming_sessions
+        resources :gaming_sessions do
+          resources :matches
+        end
         resources :games
         resources :players
       end

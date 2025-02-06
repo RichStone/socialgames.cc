@@ -1,19 +1,19 @@
-class GamingSession < ApplicationRecord
+class Match < ApplicationRecord
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.
 
-  belongs_to :team
+  belongs_to :gaming_session
   # 🚅 add belongs_to associations above.
 
-  has_many :matches, dependent: :destroy
   # 🚅 add has_many associations above.
 
+  has_one :team, through: :gaming_session
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
-  validates :finished_at, presence: true
+  validates :name, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

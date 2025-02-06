@@ -31,6 +31,7 @@
       <% end %>
     <% end %>
 
+    <%= render 'account/matches/index', matches: @gaming_session.matches, hide_back: true %>
     <%# 🚅 super scaffolding will insert new children above this line. %>
   <% end %>
 <% end %>

@@ -1,0 +1,8 @@
+<% match ||= @match %>
+<% gaming_session ||= @gaming_session || match&.gaming_session %>
+<%= render 'account/gaming_sessions/breadcrumbs', gaming_session: gaming_session %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, gaming_session, :matches] %>
+<% if match&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: match.label_string, url: [:account, match] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'matches' %>

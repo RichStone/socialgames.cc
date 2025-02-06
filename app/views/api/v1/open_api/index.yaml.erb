@@ -25,6 +25,7 @@ components:
     <%= automatic_components_for GamingSession %>
     <%= automatic_components_for Game %>
     <%= automatic_components_for Player %>
+    <%= automatic_components_for Match %>
     <%# 🚅 super scaffolding will insert new components above this line. %>
   parameters:
     id:
@@ -62,4 +63,5 @@ paths:
   <%= automatic_paths_for GamingSession, Team %>
   <%= automatic_paths_for Game, Team %>
   <%= automatic_paths_for Player, Team %>
+  <%= automatic_paths_for Match, GamingSession %>
   <%# 🚅 super scaffolding will insert new paths above this line. %>
