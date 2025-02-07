@@ -12,6 +12,7 @@
         <% box.body do %>
           <% with_attribute_settings object: @match, strategy: :label do %>
             <%= render 'shared/attributes/text', attribute: :name %>
+            <%= render 'shared/attributes/has_many', attribute: :players %>
             <%# 🚅 super scaffolding will insert new fields above this line. %>
           <% end %>
         <% end %>

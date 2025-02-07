@@ -31,6 +31,14 @@ en:
         heading: *name
         api_title: *name
         api_description: *name
+      player_ids: &players
+        _: &player_ids Players
+        label: *player_ids
+        heading: *player_ids
+        api_title: *player_ids
+        api_description: *player_ids
+        placeholder: None
+      players: *players
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -88,6 +96,7 @@ en:
     attributes:
       match:
         name: *name
+        player_ids: *player_ids
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

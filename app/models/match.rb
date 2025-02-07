@@ -22,5 +22,9 @@ class Match < ApplicationRecord
 
   # 🚅 add delegations above.
 
+  def valid_players
+    team.players
+  end
+
   # 🚅 add methods above.
 end

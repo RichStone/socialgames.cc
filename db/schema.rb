@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_05_075949) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_07_200727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,6 +130,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_05_075949) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gaming_session_id"], name: "index_matches_on_gaming_session_id"
+  end
+
+  create_table "matches_joined_players", force: :cascade do |t|
+    t.bigint "match_id", null: false
+    t.bigint "player_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_matches_joined_players_on_match_id"
+    t.index ["player_id"], name: "index_matches_joined_players_on_player_id"
   end
 
   create_table "memberships", id: :serial, force: :cascade do |t|
@@ -385,6 +394,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_05_075949) do
   add_foreign_key "invitations", "account_onboarding_invitation_lists", column: "invitation_list_id"
   add_foreign_key "invitations", "teams"
   add_foreign_key "matches", "gaming_sessions"
+  add_foreign_key "matches_joined_players", "matches"
+  add_foreign_key "matches_joined_players", "players"
   add_foreign_key "memberships", "invitations"
   add_foreign_key "memberships", "memberships", column: "added_by_id"
   add_foreign_key "memberships", "oauth_applications", column: "platform_agent_of_id"

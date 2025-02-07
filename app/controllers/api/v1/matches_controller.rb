@@ -47,6 +47,7 @@ if defined?(Api::V1::ApplicationController)
           :name,
           # 🚅 super scaffolding will insert new fields above this line.
           *permitted_arrays,
+          player_ids: [],
           # 🚅 super scaffolding will insert new arrays above this line.
         )
 

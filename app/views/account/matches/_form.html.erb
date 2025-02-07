@@ -6,6 +6,8 @@
 
     <% with_field_settings form: form do %>
       <%= render 'shared/fields/text_field', method: :name, options: {autofocus: true} %>
+      <%= render 'shared/fields/super_select', method: :player_ids, html_options: {multiple: true},
+        choices: @match.valid_players.map { |player| [player.label_string, player.id] } %>
       <%# 🚅 super scaffolding will insert new fields above this line. %>
     <% end %>
 

@@ -31,6 +31,7 @@ class Api::V1::MatchesControllerTest < Api::Test
     match = Match.find(match_data["id"])
 
     assert_equal_or_nil match_data['name'], match.name
+    assert_equal_or_nil match_data['player_ids'], match.player_ids
     # 🚅 super scaffolding will insert new fields above this line.
 
     assert_equal match_data["gaming_session_id"], match.gaming_session_id
