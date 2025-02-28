@@ -20,7 +20,7 @@
 # Any libraries that use a connection pool or another resource pool should
 # be configured to provide at least as many connections as the number of
 # threads. This includes Active Record's `pool` parameter in `database.yml`.
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS", 5)
+max_threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 min_threads_count = ENV.fetch("RAILS_MIN_THREADS", max_threads_count)
 threads min_threads_count, max_threads_count
 
@@ -42,7 +42,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # Workers do not work on JRuby or Windows (both of which do not support
 # processes).
 #
-workers ENV.fetch("WEB_CONCURRENCY", 4)
+workers ENV.fetch("WEB_CONCURRENCY", 1)
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
