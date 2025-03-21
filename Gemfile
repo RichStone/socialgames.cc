@@ -185,7 +185,7 @@ group :test do
   # Increase parallelism to run CI tests across multiple nodes
   # Note: You need to ensure that ENV["KNAPSACK_PRO_CI_NODE_INDEX"] is set if you want to use this.
   # See test/test_helper.rb for additional context around that env var.
-  gem "knapsack_pro"
+  # gem "knapsack_pro"
 end
 
 group :production do
@@ -193,15 +193,15 @@ group :production do
   gem "postmark-rails"
 
   # If you're hosting on Heroku, this service is highly recommended for autoscaling of dynos.
-  gem "rails_autoscale_agent"
+  # gem "rails_autoscale_agent"
 
   # Exception tracking, uptime monitoring, and status page service with a generous free tier.
-  gem "honeybadger"
+  # gem "honeybadger"
 
   # Another exception tracking service.
-  gem "sentry-ruby"
-  gem "sentry-rails"
-  gem "sentry-sidekiq"
+  # gem "sentry-ruby"
+  # gem "sentry-rails"
+  # gem "sentry-sidekiq"
 
   # Use S3 for Active Storage by default.
   gem "aws-sdk-s3", require: false

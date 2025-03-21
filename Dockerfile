@@ -76,7 +76,7 @@ COPY --from=build /rails /rails
 RUN useradd rails --create-home --shell /bin/bash && \
     mkdir -p /rails/storage && \
     mkdir -p /rails/tmp/pids && \
-    chown -R rails:rails db log storage tmp tmp/pids
+    chown -R rails:rails db log storage config/credentials/* tmp tmp/pids
 
 # Ensure the docker-entrypoint script is executable.
 RUN chmod +x ./bin/docker-entrypoint
