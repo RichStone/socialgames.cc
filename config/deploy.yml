@@ -1,0 +1,80 @@
+service: social_games
+
+image: richwhale/social_games
+
+servers:
+  web:
+    - 157.180.26.31
+  job:
+    hosts:
+      - 157.180.26.31
+    cmd: bundle exec sidekiq
+
+proxy:
+  ssl: true
+  host: app.socialgames.cc
+  app_port: 3000
+
+registry:
+  username: richwhale
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  context: .
+  arch: arm64
+
+env:
+  secret:
+    - POSTMARK_API_TOKEN
+    - SOCIAL_GAMES_DATABASE_PASSWORD
+    - REDIS_PASSWORD
+    - POSTGRES_PASSWORD
+    - REDIS_URL
+    - DATABASE_URL
+  clear:
+    DB_HOST: social_games-db
+    POSTGRES_USER: social_games
+    POSTGRES_DB: social_games_production
+    DB_PORT: 5432
+    REDIS_HOST: social-games-redis
+    REDIS_PORT: 6379
+    HIDE_THINGS: "true"
+    KAMAL_SETUP: "true"
+
+aliases:
+  shell: app exec --interactive --reuse "bash"
+  console: app exec --interactive --reuse "bin/rails console"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+  db_shell: accessory exec db --interactive --reuse "bash"
+  redis_shell: accessory exec redis --interactive --reuse "bash"
+
+accessories:
+  db:
+    image: postgres:14
+    host: 157.180.26.31
+    port: "127.0.0.1:5432:5432"
+    env:
+      clear:
+        POSTGRES_USER: social_games
+        POSTGRES_DB: social_games_production
+      secret:
+        - POSTGRES_PASSWORD
+        - SOCIAL_GAMES_DATABASE_PASSWORD
+        - DATABASE_URL
+    directories:
+      - data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.0
+    port: 6379
+    roles:
+      - web
+      - job
+    cmd: "/bin/sh -c 'redis-server --requirepass $REDIS_PASSWORD'"
+    volumes:
+      - /var/lib/redis:/data
+    env:
+      secret:
+        - REDIS_PASSWORD
+        - REDIS_URL
