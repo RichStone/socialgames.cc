@@ -90,4 +90,6 @@ production:
   database: social_games_production
   username: social_games
   password: <%= ENV['SOCIAL_GAMES_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+#  url: <%#= ENV['DATABASE_URL'] %>
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>

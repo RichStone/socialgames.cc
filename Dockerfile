@@ -47,9 +47,13 @@ COPY Gemfile Gemfile.lock .ruby-version ./
 RUN bundle lock --add-platform aarch64-linux
 RUN bundle install --no-cache
 RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+RUN bundle exec bootsnap precompile --gemfile
 
 # Copy application code
 COPY . .
+
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile app/ lib/
 
 # Enable Corepack and install the correct version of Yarn
 RUN corepack enable && corepack prepare yarn@4.2.2 --activate
@@ -76,7 +80,7 @@ COPY --from=build /rails /rails
 RUN useradd rails --create-home --shell /bin/bash && \
     mkdir -p /rails/storage && \
     mkdir -p /rails/tmp/pids && \
-    chown -R rails:rails db log storage config/credentials/* tmp tmp/pids
+    chown -R rails:rails db log storage config/credentials/* config/master.key tmp tmp/pids
 
 # Ensure the docker-entrypoint script is executable.
 RUN chmod +x ./bin/docker-entrypoint

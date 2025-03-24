@@ -335,8 +335,6 @@ GEM
     hashids (1.0.6)
     hashie (5.0.0)
     hiredis (0.6.3)
-    honeybadger (5.26.0)
-      logger
     htmlentities (4.3.4)
     http_accept_language (2.1.1)
     i18n (1.14.6)
@@ -366,8 +364,6 @@ GEM
     json (2.9.0)
     jwt (2.9.3)
       base64
-    knapsack_pro (7.13.1)
-      rake
     language_server-protocol (3.17.0.3)
     launchy (3.0.1)
       addressable (~> 2.8)
@@ -539,7 +535,6 @@ GEM
     rails-html-sanitizer (1.6.1)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
-    rails_autoscale_agent (0.12.0)
     rails_best_practices (1.23.2)
       activesupport
       code_analyzer (~> 0.5.5)
@@ -611,15 +606,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sentry-rails (5.22.0)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.22.0)
-    sentry-ruby (5.22.0)
-      bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-    sentry-sidekiq (5.22.0)
-      sentry-ruby (~> 5.22.0)
-      sidekiq (>= 3.0)
     sexp_processor (4.17.3)
     showcase-rails (0.4.6)
       rails (>= 6.1.0)
@@ -750,10 +736,8 @@ DEPENDENCIES
   devise-two-factor
   factory_bot_rails (~> 6.2, != 6.4.2, != 6.4.1, != 6.4.0, != 6.3.0)
   foreman
-  honeybadger
   jbuilder
   jsbundling-rails
-  knapsack_pro
   letter_opener
   magic_test
   minitest-reporters
@@ -766,15 +750,11 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.2.0)
   rails-erd
-  rails_autoscale_agent
   rails_best_practices
   redis (~> 5.3.0)
   rqrcode
   ruby-vips
   selenium-webdriver
-  sentry-rails
-  sentry-ruby
-  sentry-sidekiq
   simplecov
   simplecov-json
   sprockets-rails
