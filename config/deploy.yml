@@ -30,6 +30,7 @@ env:
     - SOCIAL_GAMES_DATABASE_PASSWORD
     - REDIS_PASSWORD
     - POSTGRES_PASSWORD
+    - RAILS_MASTER_KEY
   clear:
     DB_HOST: social_games-db
     POSTGRES_USER: social_games
