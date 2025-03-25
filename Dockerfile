@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1
-ARG RUBY_VERSION=3.3.6
+ARG RUBY_VERSION=3.4.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
@@ -16,7 +16,7 @@ FROM base as dependencies
 
 # Install packages needed for deployment.
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+    apt-get install --no-install-recommends -y curl libvips postgresql-client libyaml-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install Node.js (Version 20.x) and yarn
@@ -36,7 +36,7 @@ FROM dependencies as prebuild
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config libicu-dev curl
+    apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config libicu-dev curl libyaml-dev
 
 FROM prebuild as build
 
@@ -56,12 +56,12 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Enable Corepack and install the correct version of Yarn
-RUN corepack enable && corepack prepare yarn@4.2.2 --activate
+RUN corepack enable && corepack prepare yarn@1.22.22 --activate
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-RUN rm -rf /usr/local/bundle/ruby/3.3.6 && \
+RUN rm -rf /usr/local/bundle/ruby/3.4.2 && \
     bundle install --no-cache
 
 # Final stage for app image
