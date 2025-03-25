@@ -21,7 +21,7 @@ registry:
     - KAMAL_REGISTRY_PASSWORD
 
 builder:
-  context: .
+#  context: . # Uncomment when actively developing the Kamal setup to not need to commit every time.
   arch: arm64
 
 env:

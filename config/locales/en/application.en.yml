@@ -1,10 +1,10 @@
 en:
   application:
     name: Social Games
-    owner: Unidentified Developer
-    description: "You can update this description in `config/locales/en/application.en.yml`."
-    keywords: social games seo keywords
-    support_email: change.me@localhost
+    owner: Rich Steinmetz
+    description: Your friend and guide for tracking scores in your offline social games.
+    keywords: social games scores score tracker tracking
+    support_email: hey+support@richsteinmetz.com
     key: social_games
   webhooks/outgoing/endpoints:
     fields:
