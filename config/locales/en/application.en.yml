@@ -2,7 +2,7 @@ en:
   application:
     name: Social Games
     owner: Rich Steinmetz
-    description: Your friend and guide for tracking scores in your offline social games.
+    description: Track for your offline social games.
     keywords: social games scores score tracker tracking
     support_email: hey+support@richsteinmetz.com
     key: social_games

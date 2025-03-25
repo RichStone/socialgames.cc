@@ -75,6 +75,11 @@ RUN apt-get update -qq && \
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
+# For some reason, chown below started failing from one deploy to the next
+# after this seemingly unrelated commit: 10e52fe5a1f702285cbc5bae700858b66cf5a18a
+# chown: cannot access 'config/master.key': No such file or directory
+# This works though:
+COPY config/master.key config/master.key
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
